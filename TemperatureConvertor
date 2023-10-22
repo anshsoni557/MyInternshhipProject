@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class TemperatureConvertor {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter an Option:");
+        System.out.println("1. Fahrenheit to Celsius");
+        System.out.println("2. Celsius to Fahrenheit");
+        int choice = in.nextInt();
+        if(choice == 1){
+            System.out.println("Enter the temperature in Fahrenheit");
+            float fah = in.nextFloat();
+            float cel = (fah - 32) * 5 / 9;
+            System.out.println("The Temperature in Celsius is: " + cel);
+        }
+        else if (choice == 2){
+            System.out.println("Enter the temperature in Celsius");
+            float cel = in.nextFloat();
+            float fah = (cel * 9 / 5) + 32;
+            System.out.println("The Temperature in Fahrenheit is: " + fah);
+        }
+        else {
+            System.out.println("Invalid option. Please enter a valid choice");
+        }
+    }
+}
