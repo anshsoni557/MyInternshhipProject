@@ -1,0 +1,99 @@
+import java.util.Scanner;
+
+public class TextAdventureGame {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Quest for the Enchanted Key!");
+        System.out.println("You find yourself in a mystical land filled with magic and mystery.");
+
+        // Start of the adventure
+        int choice;
+        boolean isGameOver = false;
+
+        while (!isGameOver) {
+            System.out.println("\nYou come across a crossroads. Which path will you choose?");
+            System.out.println("1. Follow the winding path through the enchanted forest.");
+            System.out.println("2. Venture into the treacherous mountain pass.");
+            System.out.println("3. Rest at the magical fountain.");
+
+            System.out.print("Enter your choice (1-3): ");
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // clear the invalid input
+                continue;
+            }
+
+            switch (choice) {
+                case 1:
+                    System.out.println("\nYou follow the path through the enchanted forest.");
+                    System.out.println("As you walk, you encounter a talking squirrel who offers guidance.");
+                    System.out.println("What will you do?");
+                    System.out.println("1. Trust the squirrel's advice.");
+                    System.out.println("2. Ignore the squirrel and continue on your own.");
+
+                    int forestChoice = scanner.nextInt();
+                    if (forestChoice == 1) {
+                        System.out.println("\nThe squirrel leads you to the hidden entrance of a magical cave.");
+                        System.out.println("Inside, you find the Enchanted Key!");
+                        System.out.println("Congratulations, you've completed the quest!");
+                        isGameOver = true;
+                    } else {
+                        System.out.println("\nYou decide to continue on your own. The path becomes more challenging.");
+                        System.out.println("Unfortunately, you get lost in the dense forest. Game over!");
+                        isGameOver = true;
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("\nYou venture into the treacherous mountain pass.");
+                    System.out.println("You encounter a group of mountain trolls blocking the way.");
+                    System.out.println("What will you do?");
+                    System.out.println("1. Try to negotiate with the trolls.");
+                    System.out.println("2. Find an alternate route through the mountains.");
+
+                    int mountainChoice = scanner.nextInt();
+                    if (mountainChoice == 1) {
+                        System.out.println("\nYour negotiation skills impress the trolls, and they let you pass.");
+                        System.out.println("You continue your journey and find the Enchanted Key!");
+                        System.out.println("Congratulations, you've completed the quest!");
+                        isGameOver = true;
+                    } else {
+                        System.out.println("\nYou search for an alternate route but encounter a dangerous cliff.");
+                        System.out.println("Unfortunately, you fall off the cliff. Game over!");
+                        isGameOver = true;
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("\nYou decide to rest at the magical fountain.");
+                    System.out.println("The fountain's water has healing properties.");
+                    System.out.println("What will you do?");
+                    System.out.println("1. Drink from the fountain.");
+                    System.out.println("2. Splash the water on your face and continue your journey.");
+
+                    int fountainChoice = scanner.nextInt();
+                    if (fountainChoice == 1) {
+                        System.out.println("\nThe magical water revitalizes you, and you continue your journey.");
+                        System.out.println("You find the Enchanted Key! Congratulations, you've completed the quest!");
+                        isGameOver = true;
+                    } else {
+                        System.out.println("\nYou decide to splash the water and feel refreshed.");
+                        System.out.println("As you continue, you encounter a friendly group of fairies.");
+                        System.out.println("They guide you to the Enchanted Key. Congratulations!");
+                        isGameOver = true;
+                    }
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 3.");
+            }
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
